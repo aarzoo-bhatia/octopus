@@ -76,14 +76,9 @@ module Octopus
         end
       end
 
-      base.send :alias_method, :run_without_octopus, :run
-      base.send :alias_method, :run, :run_with_octopus
-
-      base.send :alias_method, :migrate_without_octopus, :migrate
-      base.send :alias_method, :migrate, :migrate_with_octopus
-
-      base.send :alias_method, :migrations_without_octopus, :migrations
-      base.send :alias_method, :migrations, :migrations_with_octopus
+      base.send :alias_method, :run, :run_without_octopus
+      base.send :alias_method, :migrate, :migrate_without_octopus
+      base.send :alias_method, :migrations, :migrations_without_octopus
     end
     if Octopus.atleast_rails52?
       ### Post RAILS 5.2 Migration methods
