@@ -67,20 +67,11 @@ module Octopus
 
         base.class_eval do
           class << self
-              alias_method :migrate_without_octopus, :migrate
-              alias_method :migrate, :migrate_with_octopus
-              
-              alias_method :up_without_octopus, :up
-              alias_method :up, :up_with_octopus
-
-              alias_method :down_without_octopus, :down
-              alias_method :down, :down_with_octopus
-
-              alias_method :run_without_octopus, :run
-              alias_method :run, :run_with_octopus
-
-              alias_method :rollback_without_octopus, :rollback
-              alias_method :rollback, :rollback_with_octopus
+              alias_method :migrate, :migrate_without_octopus
+              alias_method :up, :up_without_octopus
+              alias_method :down, :down_without_octopus
+              alias_method :run, :run_without_octopus
+              alias_method :rollback, :rollback_without_octopus
           end
         end
       end
